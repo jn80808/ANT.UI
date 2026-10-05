@@ -1,3 +1,25 @@
 .backgroundViolet {
-    background-color: #AA80F3 !important;;
+    background-color: #AA80F3 !important;
+}
+
+.textViolet {
+    color: #fbfbfb !important;;
+}
+
+/* SEARCH  */
+.backgroundVioletSearch {
+    background-color: #f8f7fa !important;
+    border-color: #f1f3f7 !important;
+}
+
+.backgroundVioletSearchbutton {
+    background-color: #a9dddd !important;
+    border-color: #88aefa !important;
+    color: #036e86 !important;
+}
+
+.backgroundVioletSearchbutton:hover {
+    background-color: #009c9c !important;
+    color: #fefefe !important;
+    border-color: #88aefa !important;
 }
