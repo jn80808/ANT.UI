@@ -10,11 +10,19 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class AddCategory {
 
 
-  // Import ReactiveFormModule 
-  // FormGroups -> FormControl
+  // 1. Import ReactiveFormModule 
+  // 2. FormGroups -> FormControl
 
   addCategoryFormGroup = new FormGroup({
-    name: new FormControl<string>('',{nonNullable: true})
+    CategoryName: new FormControl<string>('',{nonNullable: true}),
+    urlHandle: new FormControl<string>('',{nonNullable: true})
   })
+
+
+  onSubmit(){
+    console.log(this.addCategoryFormGroup.getRawValue())
+  }
+
+
 
 }
