@@ -6,14 +6,29 @@
         <div class="mt-3">
             <label class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="name" />
-            @if (nameFormControl.hasError('required')){
+            <!-- Validation  -->
+            @if (addCategoryFormGroup.touched && nameFormControl.hasError('required')){
                 <p class="text-danger small">This is a required field</p>
             }
+            @if (addCategoryFormGroup.touched && nameFormControl.hasError('maxlength')){
+                <p class="text-danger small">Category Name can only be 100 characters long</p>
+            }
+
         </div>
 
         <div class="mt-3">
             <label class="form-label">URL Handle (Slug)</label>
             <input type="text" class="form-control" formControlName="urlHandle" />
+
+            <!-- Validation  -->
+            @if (addCategoryFormGroup.touched && urlHandleFormControl.hasError('required')){
+                <p class="text-danger small">This is a required field</p>
+            }
+            @if (addCategoryFormGroup.touched && urlHandleFormControl.hasError('maxlength')){
+                <p class="text-danger small">Category Name can only be 100 characters long</p>
+            }
+
+
         </div>
 
         <div class="mt-3">
