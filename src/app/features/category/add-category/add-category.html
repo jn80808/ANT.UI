@@ -7,10 +7,10 @@
             <label class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="name" />
             <!-- Validation  -->
-            @if (addCategoryFormGroup.touched && nameFormControl.hasError('required')){
+            @if (nameFormControl.touched && nameFormControl.hasError('required')){
                 <p class="text-danger small">This is a required field</p>
             }
-            @if (addCategoryFormGroup.touched && nameFormControl.hasError('maxlength')){
+            @if (nameFormControl.touched && nameFormControl.hasError('maxlength')){
                 <p class="text-danger small">Category Name can only be 100 characters long</p>
             }
 
@@ -21,10 +21,10 @@
             <input type="text" class="form-control" formControlName="urlHandle" />
 
             <!-- Validation  -->
-            @if (addCategoryFormGroup.touched && urlHandleFormControl.hasError('required')){
+            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('required')){
                 <p class="text-danger small">This is a required field</p>
             }
-            @if (addCategoryFormGroup.touched && urlHandleFormControl.hasError('maxlength')){
+            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('maxlength')){
                 <p class="text-danger small">Category Name can only be 100 characters long</p>
             }
 

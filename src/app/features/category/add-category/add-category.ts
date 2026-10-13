@@ -35,3 +35,19 @@ export class AddCategory {
 
 
 }
+
+
+
+// class Validators {
+// static min(min: number): ValidatorFn;
+// static max(max: number): ValidatorFn;
+// static required(control: AbstractControl<any, any>): ValidationErrors;
+// static requiredTrue(control: AbstractControl<any, any>): ValidationErrors;
+// static email(control: AbstractControl<any, any>): ValidationErrors;
+// static minLength(minLength: number): ValidatorFn;
+// static maxLength(maxLength: number): ValidatorFn;
+// static pattern(pattern: string | RegExp): ValidatorFn;
+// static nullValidator(control: AbstractControl<any, any>): ValidationErrors;
+// static compose(validators: null): null;
+// static compose(validators: ValidatorFn[]): ValidatorFn;
+// static composeAsync(validators: AsyncValidatorFn[]): AsyncValidatorFn;
