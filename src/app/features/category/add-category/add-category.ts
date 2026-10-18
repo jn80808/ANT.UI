@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AddCategoryRequest } from '../model/category.model';
 
 @Component({
   selector: 'app-add-category',
@@ -29,7 +30,16 @@ export class AddCategory {
 
 
   onSubmit(){
-    console.log(this.addCategoryFormGroup.getRawValue())
+    console.log(this.addCategoryFormGroup.getRawValue()) // outputting in console
+    const addCategoryFormValue = this.addCategoryFormGroup.getRawValue() //creating object 
+
+
+    const addCategoryRquestDto: AddCategoryRequest = { //AddCategoryRequest from model
+      name: addCategoryFormValue.name,
+      urlHandle: addCategoryFormValue.urlHandle,
+    };
+
+
   }
 
 
