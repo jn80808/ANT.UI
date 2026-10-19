@@ -4,3 +4,8 @@ export interface AddCategoryRequest{
 }
 
 
+export interface category {
+    id: string;
+    name: string;
+    urlHandle: string;
+}

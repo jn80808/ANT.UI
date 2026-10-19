@@ -23,6 +23,10 @@ export class CategoryService {
 
     })
 
+    getAllCategories(){
+      
+    }
+
   }
 }
 

@@ -29,8 +29,6 @@ export class AddCategory {
     
     }
 
-  
-
 
   private categoryService = inject (CategoryService)
 
@@ -57,12 +55,12 @@ export class AddCategory {
     const addCategoryFormValue = this.addCategoryFormGroup.getRawValue() //creating object 
 
 
-    const addCategoryRquestDto: AddCategoryRequest = { //AddCategoryRequest from model
+    const addCategoryRquestDto: AddCategoryRequest = { //AddCategoryRequest from model 
       name: addCategoryFormValue.name,
       urlHandle: addCategoryFormValue.urlHandle,
 
     };
-      this.categoryService.addCategory(addCategoryRquestDto)
+      this.categoryService.addCategory(addCategoryRquestDto) //this is value will post in service UI and from services UI will call BE 
 
   }
 }
