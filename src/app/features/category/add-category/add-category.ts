@@ -2,6 +2,7 @@ import { Component, effect, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AddCategoryRequest } from '../model/category.model';
 import { CategoryService } from '../services/category-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -11,12 +12,21 @@ import { CategoryService } from '../services/category-service';
 })
 export class AddCategory {
 
+  private router = inject(Router);
+
+
   //add contructor 
   constructor (){
       effect(()=>{
           if (this.categoryService.addCategoryStatus()=== 'success'){
-          console.log('Success');    
+          //console.log('Success');    
           //Redirect back to category list page 
+            this.categoryService.addCategoryStatus.set('idle'); //able to add category again 
+            this.router.navigate(['/admin/categories']) //redirect page 
+
+
+
+
           }
 
           if (this.categoryService.addCategoryStatus()=== 'error'){
