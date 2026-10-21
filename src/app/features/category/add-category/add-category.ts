@@ -23,10 +23,6 @@ export class AddCategory {
           //Redirect back to category list page 
             this.categoryService.addCategoryStatus.set('idle'); //able to add category again 
             this.router.navigate(['/admin/categories']) //redirect page 
-
-
-
-
           }
 
           if (this.categoryService.addCategoryStatus()=== 'error'){
