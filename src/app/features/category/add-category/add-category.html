@@ -1,44 +1,148 @@
 
-<div class="container">
-    <h1 class="mt-3">Add Category</h1>
+<div class="container py-4 category-page">
 
+    <!-- Page Header -->
+    <div class="page-header mb-4">
+        <h1 class="page-title mb-1">Add Category</h1>
+        <p class="page-subtitle mb-0">
+            Admin / Categories / Add
+        </p>
+    </div>
 
-    <form [formGroup]="addCategoryFormGroup" (ngSubmit)="onSubmit()">
-        <!-- Name -->
-        <div class="mt-3">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" formControlName="name" />
-            <!-- Validation  -->
-            @if (nameFormControl.touched && nameFormControl.hasError('required')){
-                <p class="text-danger small">This is a required field</p>
-            }
-            @if (nameFormControl.touched && nameFormControl.hasError('maxlength')){
-                <p class="text-danger small">Category Name can only be 100 characters long</p>
-            }
+    <!-- Form Card -->
+    <div class="category-form-card">
 
+        <!-- Card Heading -->
+        <div class="form-card-heading">
+            <div class="heading-icon">+</div>
+
+            <div>
+                <h2>Create a New Category</h2>
+                <p>
+                    Enter the details below to create a category.
+                </p>
+            </div>
         </div>
 
-        <!-- URL Handle -->
-        <div class="mt-3">
-            <label class="form-label">URL Handle (Slug)</label>
-            <input type="text" class="form-control" formControlName="urlHandle" />
+        <hr class="form-divider" />
 
-            <!-- Validation  -->
-            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('required')){
-                <p class="text-danger small">This is a required field</p>
-            }
-            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('maxlength')){
-                <p class="text-danger small">Category Name can only be 100 characters long</p>
-            }
-        </div>
+        <!-- Add Category Form -->
+        <form
+            [formGroup]="addCategoryFormGroup"
+            (ngSubmit)="onSubmit()"
+            novalidate>
 
-        <!-- Save -->
-        <div class="mt-3">
-            <button type="submit" 
-                    class="btn btn-primary" 
+            <!-- Category Name -->
+            <div class="form-field">
+                <label for="name" class="form-label">
+                    Category Name
+                    <span class="required-mark">*</span>
+                </label>
+
+                <input
+                    id="name"
+                    type="text"
+                    class="form-control custom-input"
+                    formControlName="name"
+                    placeholder="e.g. Technology"
+                    maxlength="100"
+                    autocomplete="off"
+                    [class.is-invalid]="
+                        nameFormControl.touched &&
+                        nameFormControl.invalid
+                    "
+                />
+
+                <div class="field-hint">
+                    Choose a clear name for your category.
+                </div>
+
+                <!-- Name Validation -->
+                @if (
+                    nameFormControl.touched &&
+                    nameFormControl.hasError('required')
+                ) {
+                    <p class="validation-message">
+                        Category name is required.
+                    </p>
+                }
+
+                @if (
+                    nameFormControl.touched &&
+                    nameFormControl.hasError('maxlength')
+                ) {
+                    <p class="validation-message">
+                        Category name cannot exceed 100 characters.
+                    </p>
+                }
+            </div>
+
+            <!-- URL Handle -->
+            <div class="form-field">
+                <label for="urlHandle" class="form-label">
+                    URL Handle (Slug)
+                    <span class="required-mark">*</span>
+                </label>
+
+                <input
+                    id="urlHandle"
+                    type="text"
+                    class="form-control custom-input"
+                    formControlName="urlHandle"
+                    placeholder="e.g. technology"
+                    maxlength="100"
+                    autocomplete="off"
+                    [class.is-invalid]="
+                        urlHandleFormControl.touched &&
+                        urlHandleFormControl.invalid
+                    "
+                />
+
+                <div class="field-hint">
+                    Used in URLs to identify this category.
+                    For example: <code>/categories/technology</code>
+                </div>
+
+                <!-- URL Handle Validation -->
+                @if (
+                    urlHandleFormControl.touched &&
+                    urlHandleFormControl.hasError('required')
+                ) {
+                    <p class="validation-message">
+                        URL handle is required.
+                    </p>
+                }
+
+                @if (
+                    urlHandleFormControl.touched &&
+                    urlHandleFormControl.hasError('maxlength')
+                ) {
+                    <p class="validation-message">
+                        URL handle cannot exceed 100 characters.
+                    </p>
+                }
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <!-- Cancel -->
+                <!-- <a
+                    [routerLink]="['/admin', 'categories']"
+                    class="btn btn-back">
+                    Cancel
+                </a> -->
+
+                <button
+                    type="submit"
+                    class="btn btn-save"
                     [disabled]="addCategoryFormGroup.invalid">
-                Save
-            </button>
-        </div>
-    </form>
+                    Save Category
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
 </div>
