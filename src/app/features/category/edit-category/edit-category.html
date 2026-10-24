@@ -1,0 +1,154 @@
+
+<div class="container py-4 category-page">
+
+    <!-- Page Header -->
+    <div class="page-header mb-4">
+        <h1 class="page-title mb-1">Edit Category</h1>
+        <p class="page-subtitle mb-0">
+            Admin / Categories / Edit
+        </p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="category-form-card">
+
+        <!-- Card Heading -->
+        <div class="form-card-heading">
+            <div class="heading-icon">
+                <span>&#9998;</span>
+            </div>
+
+            <div>
+                <h2>Update Category Details</h2>
+                <p>
+                    Modify the category information below.
+                </p>
+            </div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <!-- Edit Category Form -->
+        <form
+            [formGroup]="editCategoryFormGroup"
+            (ngSubmit)="onSubmit()"
+            novalidate>
+
+            <!-- Category Name -->
+            <div class="form-field">
+                <label for="name" class="form-label">
+                    Category Name
+                    <span class="required-mark">*</span>
+                </label>
+
+                <input
+                    id="name"
+                    type="text"
+                    class="form-control custom-input"
+                    formControlName="name"
+                    placeholder="e.g. Technology"
+                    maxlength="100"
+                    autocomplete="off"
+                    [class.is-invalid]="
+                        nameFormControl.touched &&
+                        nameFormControl.invalid
+                    "
+                />
+
+                <div class="field-hint">
+                    Enter a clear and descriptive category name.
+                </div>
+
+                @if (
+                    nameFormControl.touched &&
+                    nameFormControl.hasError('required')
+                ) {
+                    <p class="validation-message">
+                        Category name is required.
+                    </p>
+                }
+
+                @if (
+                    nameFormControl.touched &&
+                    nameFormControl.hasError('maxlength')
+                ) {
+                    <p class="validation-message">
+                        Category name cannot exceed 100 characters.
+                    </p>
+                }
+            </div>
+
+            <!-- URL Handle -->
+            <div class="form-field">
+                <label for="urlHandle" class="form-label">
+                    URL Handle (Slug)
+                    <span class="required-mark">*</span>
+                </label>
+
+                <input
+                    id="urlHandle"
+                    type="text"
+                    class="form-control custom-input"
+                    formControlName="urlHandle"
+                    placeholder="e.g. technology"
+                    maxlength="100"
+                    autocomplete="off"
+                    [class.is-invalid]="
+                        urlHandleFormControl.touched &&
+                        urlHandleFormControl.invalid
+                    "
+                />
+
+                <div class="field-hint">
+                    The URL-friendly identifier for this category.
+                    Example: <code>/categories/technology</code>
+                </div>
+
+                @if (
+                    urlHandleFormControl.touched &&
+                    urlHandleFormControl.hasError('required')
+                ) {
+                    <p class="validation-message">
+                        URL handle is required.
+                    </p>
+                }
+
+                @if (
+                    urlHandleFormControl.touched &&
+                    urlHandleFormControl.hasError('maxlength')
+                ) {
+                    <p class="validation-message">
+                        URL handle cannot exceed 100 characters.
+                    </p>
+                }
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+
+                <a
+                    [routerLink]="['/admin', 'categories']"
+                    class="btn btn-back">
+                    Cancel
+                </a>
+
+                <!-- <button
+                    type="submit"
+                    class="btn btn-update"
+                    [disabled]="editCategoryFormGroup.invalid" >
+                    Update Category
+                </button> -->
+
+                <button
+                    type="submit"
+                    class="btn btn-update">
+                    Update Category
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
