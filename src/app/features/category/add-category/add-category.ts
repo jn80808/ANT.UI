@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,],
   templateUrl: './add-category.html',
   styleUrl: './add-category.css',
 })
